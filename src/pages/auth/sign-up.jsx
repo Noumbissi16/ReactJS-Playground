@@ -5,7 +5,12 @@ import { FaGoogle, FaFacebook } from "react-icons/fa";
 const SignUp = () => {
   const [isFetching, setisFetching] = useState(false);
 
-  async function submit() {
+  async function submit(e) {
+    e.preventDefault();
+    const signupId = document.getElementById("signUpForm");
+    const signUpForm = new FormData(signupId);
+    console.log(signUpForm);
+
     try {
       setisFetching(true);
       // const res = await fetch("http://localhost:8080/auth/google/callback");
@@ -25,7 +30,10 @@ const SignUp = () => {
       {/* <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
         Sign in to your account
       </h2> */}
-      <form className="w-[90vw] m-auto shadow-md hover:shadow-lg p-5 rounded-lg md:w-[600px]">
+      <form
+        className="w-[90vw] m-auto shadow-md hover:shadow-lg p-5 rounded-lg md:w-[600px]"
+        id="signUpForm"
+      >
         <h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-gray-700 mb-4">
           Sign up to your account
         </h2>

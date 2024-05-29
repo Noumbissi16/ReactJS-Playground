@@ -4,7 +4,11 @@ import { Link } from "react-router-dom";
 
 const SingIn = () => {
   const [isFetching, setisFetching] = useState(false);
-  async function submit() {
+  async function submit(e) {
+    e.preventDefault();
+    const signInForm = document.getElementById("signInForm");
+    const formData = new FormData(signInForm);
+    console.log(formData);
     try {
       setisFetching(true);
       // const res = await fetch("http://localhost:8080/auth/google/callback");
