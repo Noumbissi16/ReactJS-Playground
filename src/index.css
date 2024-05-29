@@ -1,3 +1,33 @@
+/* src/index.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.bg-blur-gradient {
+  background: linear-gradient(
+    15deg,
+    rgba(255, 0, 150, 0.1),
+    rgba(20, 88, 105, 0.1)
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
+}
+
+.middle-gradient-blur::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 50%;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 0, 150, 0.4),
+    rgba(0, 204, 255, 0.4)
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
+  border-radius: 20px;
+  z-index: -1;
+}
