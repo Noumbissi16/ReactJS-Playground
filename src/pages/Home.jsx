@@ -1,17 +1,15 @@
 import React from "react";
-import NavBar from "../components/NavBar";
 import SearchForm from "../components/SearchForm";
 
 const Home = () => {
   return (
     <>
-      <NavBar />
       <main
         className="w-full h-[75lvh] bg-cover bg-center p-8 flex flex-col items-start justify-center gap-4"
         style={{
           backgroundImage:
             'linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.9)), url("/landing-homepage.jpg")',
-        }}
+        }} 
       >
         <h1 className="text-4xl md:text-5xl font-bold text-white">
           Welcome on AfriPik,

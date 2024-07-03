@@ -1,15 +1,20 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaGoogle, FaFacebook } from "react-icons/fa";
+import ThemeToggle from "../../components/ThemeToggle";
+
 
 const SignUp = () => {
   const [isFetching, setisFetching] = useState(false);
 
+  const navigate = useNavigate();
+
   async function submit(e) {
     e.preventDefault();
-    const signupId = document.getElementById("signUpForm");
-    const signUpForm = new FormData(signupId);
-    console.log(signUpForm);
+    // const signupId = document.getElementById("signUpForm");
+    // const signUpForm = new FormData(signupId);
+    // console.log(signUpForm);
+navigate("/")
 
     try {
       setisFetching(true);
@@ -26,21 +31,21 @@ const SignUp = () => {
   }
 
   return (
-    <div className="flex justify-center items-center w-full h-[100vh]">
+    <div className="flex justify-center items-center w-full h-[80vh]">
       {/* <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
         Sign in to your account
       </h2> */}
       <form
-        className="w-[90vw] m-auto shadow-md hover:shadow-lg p-5 rounded-lg md:w-[600px]"
+        className="form"
         id="signUpForm"
       >
-        <h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-gray-700 mb-4">
+        <h2 className="form-title">
           Sign up to your account
         </h2>
         <div className="my-4">
           <label
             htmlFor="username"
-            className="block text-sm font-medium leading-6 text-gray-800 mb-1"
+           
           >
             Username
           </label>
@@ -49,15 +54,12 @@ const SignUp = () => {
             id="username"
             name="username"
             placeholder="Please insert your username"
-            // required
-            className="block w-full rounded-md border-0 py-1.5 text-gray-800 shadow-sm bg-gray-50 placeholder:text-gray-400 focus:border-0 sm:text-sm sm:leading-6"
-            // className="block w-full rounded-md border-0 py-1.5 text-gray-800 shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-blue-700 sm:text-sm sm:leading-6"
+            className="form-input"
           />
         </div>
         <div className="my-4">
           <label
             htmlFor="email"
-            className="block text-sm font-medium leading-6 text-gray-800 mb-1"
           >
             Email address
           </label>
@@ -67,15 +69,12 @@ const SignUp = () => {
             name="email"
             autoComplete="email"
             placeholder="Please insert your email"
-            // required
-            className="block w-full rounded-md border-0 py-1.5 text-gray-800 shadow-sm bg-gray-50 placeholder:text-gray-400 focus:border-0 sm:text-sm sm:leading-6"
-            // className="block w-full rounded-md border-0 py-1.5 text-gray-800 shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-blue-700 sm:text-sm sm:leading-6"
+            className="form-input"
           />
         </div>
         <div className="my-4">
           <label
             htmlFor="password"
-            className="block text-sm font-medium leading-6 text-gray-800 mb-1"
           >
             Password
           </label>
@@ -86,14 +85,13 @@ const SignUp = () => {
             name="password"
             autoComplete="password"
             placeholder="Please insert your password"
-            // required
-            className="block w-full rounded-md border-0 py-1.5 text-gray-800 shadow-sm bg-gray-50 placeholder:text-gray-400 focus:border-0 sm:text-sm sm:leading-6"
+            className="form-input"
           />
         </div>
         <button
           onClick={submit}
           type="submit"
-          className="text-white w-full p-1.5 rounded-md bg-blue-950 hover:bg-blue-900"
+          className="w-full"
         >
           {isFetching ? "...loading" : "Create an account"}
         </button>
@@ -109,9 +107,10 @@ const SignUp = () => {
         </div>
         <Link to={"/sign-in"} className="text-center mt-3 block text-sm ">
           Already have an account ?{" "}
-          <span className="text-blue-900"> Sign in</span>
+          <span className="text-blue-700 dark:text-blue-500"> Sign in</span>
         </Link>
       </form>
+      <ThemeToggle />
     </div>
   );
 };

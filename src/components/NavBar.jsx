@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { MdMenu } from "react-icons/md";
 import { navLinks } from "../utils/constants";
+import ThemeToggle from "./ThemeToggle";
+
 
 const NavBar = () => {
   const [isNavBarVisible, setIsNavBarVisible] = useState(false);
@@ -42,6 +44,7 @@ const NavBar = () => {
               </li>
             ))}
           </ul>
+<ThemeToggle />
         </div>
       </nav>
     </div>

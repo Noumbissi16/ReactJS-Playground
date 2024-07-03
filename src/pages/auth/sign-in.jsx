@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import { FaFacebook, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SingIn = () => {
   const [isFetching, setisFetching] = useState(false);
+  const navigate = useNavigate();
   async function submit(e) {
     e.preventDefault();
-    const signInForm = document.getElementById("signInForm");
-    const formData = new FormData(signInForm);
-    console.log(formData);
+  navigate("/");
+    // const signInForm = document.getElementById("signInForm");
+    // const formData = new FormData(signInForm);
+    // console.log(formData);
     try {
       setisFetching(true);
       // const res = await fetch("http://localhost:8080/auth/google/callback");
@@ -22,18 +24,15 @@ const SingIn = () => {
     }
   }
   return (
-    <div className="flex justify-center items-center w-full h-[100vh]">
-      {/* <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-        Sign in to your account
-      </h2> */}
-      <form className="w-[90vw] m-auto shadow-md hover:shadow-lg p-5 rounded-lg md:w-[600px]">
-        <h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-gray-700 mb-4">
+    <div className="flex justify-center items-center w-full h-[80vh]">
+     
+      <form className="form">
+        <h2 className="form-title">
           Sign In to your account
         </h2>
         <div className="my-4">
           <label
             htmlFor="email"
-            className="block text-sm font-medium leading-6 text-gray-800 mb-1"
           >
             Email address
           </label>
@@ -44,14 +43,12 @@ const SingIn = () => {
             autoComplete="email"
             placeholder="Please insert your email"
             // required
-            className="block w-full rounded-md border-0 py-1.5 text-gray-800 shadow-sm bg-gray-50 placeholder:text-gray-400 focus:border-0 sm:text-sm sm:leading-6"
-            // className="block w-full rounded-md border-0 py-1.5 text-gray-800 shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-blue-700 sm:text-sm sm:leading-6"
-          />
+            className="form-input"
+              />
         </div>
         <div className="my-4">
           <label
             htmlFor="password"
-            className="block text-sm font-medium leading-6 text-gray-800 mb-1"
           >
             Password
           </label>
@@ -63,13 +60,13 @@ const SingIn = () => {
             autoComplete="password"
             placeholder="Please insert your password"
             // required
-            className="block w-full rounded-md border-0 py-1.5 text-gray-800 shadow-sm bg-gray-50 placeholder:text-gray-400 focus:border-0 sm:text-sm sm:leading-6"
+            className="form-input"
           />
         </div>
         <button
           onClick={submit}
           type="submit"
-          className="text-white w-full p-1.5 rounded-md bg-blue-950 hover:bg-blue-900"
+          className=" w-full "
         >
           {isFetching ? "...loading" : "Create an account"}
         </button>
@@ -85,7 +82,7 @@ const SingIn = () => {
         </div>
         <Link to={"/sign-up"} className="text-center mt-3 block text-sm ">
           Don't yet have an account ?
-          <span className="text-blue-900"> Sign Up</span>
+          <span className="text-blue-700 dark:text-blue-500"> Sign Up</span>
         </Link>
       </form>
     </div>

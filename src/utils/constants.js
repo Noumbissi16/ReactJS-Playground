@@ -4,8 +4,8 @@ export const navLinks = [
     text: "home",
   },
   {
-    href: "/about",
-    text: "About",
+    href: "/playground",
+    text: "Playground",
   },
   {
     href: "/contact-us",
@@ -15,4 +15,8 @@ export const navLinks = [
     href: "/collections",
     text: "Collections",
   },
+  {
+    href: "/sign-in",
+    text: "Sign In",
+  }
 ];
