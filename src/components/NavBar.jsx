@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { MdMenu } from "react-icons/md";
-import { navLinks } from "../utils/constants";
 import ThemeToggle from "./ThemeToggle";
+import { navLinks } from "../lib/constants";
 
 
 const NavBar = () => {
