@@ -18,5 +18,26 @@ export const navLinks = [
   {
     href: "/sign-in",
     text: "Sign In",
-  }
+  },
+
+  {
+    href: "/clerk",
+    text: "Clerk",
+  },
+];
+
+
+export const clerkLinks = [
+  {
+    href: "/clerk",
+    text: "Clerk",
+  },
+  {
+    href: "/clerk/sign-in",
+    text: "Sign In Clerk",
+  },
+  {
+    href: "/clerk/sign-up",
+    text: "Sign Up Clerk",
+  },
 ];

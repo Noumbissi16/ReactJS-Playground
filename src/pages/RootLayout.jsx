@@ -1,16 +1,17 @@
-import React from 'react'
-import NavBar from '../components/NavBar'
-import { Outlet } from 'react-router-dom'
+import React from "react";
+import NavBar from "../components/NavBar";
+import { Outlet } from "react-router-dom";
+import { navLinks } from "../lib/constants";
 
 const RootLayout = () => {
   return (
-    <div>
-        <NavBar />
-        <div className='mt-20'>
+    <>
+      <NavBar navLinks={navLinks} />
+      <div className="mt-20">
         <Outlet />
-        </div>
-    </div>
-  )
-}
+      </div>
+    </>
+  );
+};
 
-export default RootLayout
+export default RootLayout;

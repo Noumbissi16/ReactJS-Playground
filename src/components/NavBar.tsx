@@ -2,14 +2,12 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { MdMenu } from "react-icons/md";
 import ThemeToggle from "./ThemeToggle";
-import { navLinks } from "../lib/constants";
 
-
-const NavBar = () => {
+const NavBar = ({ navLinks }) => {
   const [isNavBarVisible, setIsNavBarVisible] = useState(false);
   return (
     <div className="bg-black">
-      <nav className="absolute top-0 text-white p-4 flex  items-center justify-between w-full">
+      <nav className="text-white p-4 flex  items-center justify-between w-full">
         <Link to={"/"}>
           <div className="w-9 h-9 lg:w-12 lg:h-12">
             <img src="/logo192.png" alt="logo" className="w-full h-full" />
@@ -44,7 +42,7 @@ const NavBar = () => {
               </li>
             ))}
           </ul>
-<ThemeToggle />
+          <ThemeToggle />
         </div>
       </nav>
     </div>

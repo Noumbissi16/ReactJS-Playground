@@ -7,6 +7,19 @@ import Collections from "./pages/Collections";
 import Playground from "./pages/Playground";
 import RootLayout from "./pages/RootLayout";
 import { useEffect } from "react";
+import { ClerkRootLayout, SignInC, SignUpC, LoggedPage } from "./pages/clerk-auth"
+
+
+
+// Import your publishable key
+const PUBLISHABLE_KEY = process.env.REACT_APP_CLERK_PUBLISHABLE_KEY
+
+if (!PUBLISHABLE_KEY) {
+  throw new Error("Missing Publishable Key")
+}
+console.log("Publishable key: " + PUBLISHABLE_KEY)
+
+
 
 function App() {
 
@@ -25,6 +38,11 @@ function App() {
       </Route>
       <Route element={<SignIn />} path="/sign-in" />
       <Route element={<SignUp />} path="/sign-up" />
+      <Route element={<ClerkRootLayout />}>
+        <Route element={<SignInC />} path="/clerk/sign-in" />
+        <Route element={<SignUpC />} path="/clerk/sign-up" />
+        <Route element={<LoggedPage />} path="/clerk" />
+      </Route>
       <Route element={<h1>Not found</h1>} path="*" />
     </Routes>
   );
